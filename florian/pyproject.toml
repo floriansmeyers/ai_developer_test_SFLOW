@@ -1,0 +1,34 @@
+[project]
+name = "easify-rag"
+version = "0.1.0"
+description = "RAG system for Easify platform documentation"
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=1.0,<2.0",
+    "chromadb>=0.4,<1.0",
+    "rank-bm25>=0.2,<0.3",
+    "sentence-transformers>=2.0,<4.0",
+    "click>=8.0,<9.0",
+    "python-dotenv>=1.0,<2.0",
+    "rich>=13.0,<14.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0,<9.0"]
+
+[project.scripts]
+easify-rag = "cli:cli"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["cli", "config", "models", "pipeline"]
+
+[tool.setuptools.packages.find]
+include = ["ingest*", "index*", "retrieve*", "generate*", "evaluate*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+chroma_db/
+bm25_index.sqlite
+index_manifest.json
+*.egg-info/
+dist/
+build/
+.venv/
